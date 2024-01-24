@@ -21,3 +21,6 @@ values for the characteristic in question.
 Sounds simple?
 Good!
 Let's get started...
+
+Please me aware, this only runs on linux and mac
+because of the color change of text output.
