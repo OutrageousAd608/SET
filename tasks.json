@@ -1,4 +1,4 @@
-make sure to copy this into your tasks.json file. I'm gonna be honest, I don't why it needs to be like this but it works :).
+// make sure to copy this into your tasks.json file. I'm gonna be honest, I don't why it needs to be like this but it works :).
 
 {
     "version": "2.0.0",
