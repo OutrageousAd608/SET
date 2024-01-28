@@ -1,3 +1,5 @@
+// This file includes all functions that are used, I didn't comment all the functions
+// so if there's any questions just hit me up on linkedin and I can explain.
 #include <iostream>
 #include <vector>
 #include <string>
@@ -710,7 +712,7 @@ void fullGameRunner(){
                 }
             }else{
                 std::cout << std::endl;
-                std::cout << "Sorry, what you entered was not a set." << std::endl;
+                std::cout << "Sorry, what you entered was not a set." << std::endl << std::endl;
             }
         }else{
             if(choice == "A" || choice == "a"){
