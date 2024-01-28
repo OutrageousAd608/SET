@@ -1,4 +1,6 @@
 // This is the file containing the class used for a card
+// and the class for the starting Card which in retrospect seems kind of useless 
+// except for obtaining a more clear undersatnding of what a functions takes.
 
 
 
