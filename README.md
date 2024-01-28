@@ -22,4 +22,4 @@ Sounds simple?
 Good!
 Let's get started...
 
-Please be aware, this only runs on linux and mac because of the color change of text output.
+Please be aware, this only runs on linux and mac because of the color change of text output and don't forget to copy and paste from the tasks.json file.
