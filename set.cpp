@@ -1,6 +1,5 @@
-// This file includes all functions that are used, I didn't comment all the functions
-// so if there's any questions just hit me up on linkedin and I can explain.
-
+// This file includes all functions that are used, I didn't comment all the functions 
+// so if there's any questions just hit me up on linkedin @ www.linkedin.com/in/richarddong2005 and I can explain.
 
 #include <iostream>
 #include <vector>
@@ -692,6 +691,11 @@ void fullGameRunner(){
         }
         trios = setFinder(cardStarter);
         totalTrios = trios[0];
+        if(totalTrios == 0 && remainingCards == 0){
+            std::cout << "You have found all the sets!" << std::endl;
+            std::cout << "Nice job gamer, GGS." << std::endl << std::endl;
+            break;
+        }
         boardPrinter(cardStarter);
         std::cout << "There are " << remainingCards << " cards left in the deck aside from the " << currentBoard << " cards that are on the board" << std::endl;
         std::cout << "Would you like to make a guess or add 3 cards to the board? (G/A) ";
@@ -735,11 +739,6 @@ void fullGameRunner(){
                 std::cout << "What you entered was not one of the 2 choices." << std::endl;
                 std::cout << std::endl;
             }
-        }
-        if(totalTrios == 0 && remainingCards == 0){
-            std::cout << "You have found all the sets!" << std::endl;
-            std::cout << "Nice job gamer, GGS." << std::endl;
-            break;
         }
     }
 }
@@ -819,7 +818,6 @@ int* setFinder(cardHead* cardStarter){
 void setPractice(){
     std::cout << std::endl;
     cardHead* cardStarter{dozenGenerator()};
-    boardPrinter(cardStarter);
     int* trios{setFinder(cardStarter)};
     int totalTrios{trios[0]};
     int triosFound{};
@@ -829,18 +827,16 @@ void setPractice(){
     std::string revealAllSets{""};
     while(1){
         if(triosFound == totalTrios){
-            std::cout << "Nice job gamer, you've found all the sets within this dozen. GGs." << std::endl;
+            std::cout << std::endl << "Nice job gamer, you've found all the sets within this dozen. GGs." << std::endl << std::endl;
             std::cout << "If you want to stop, you can simply enter \"Stop\" now or enter \"Continue\" to keep practicing: ";
             std::cin >> revealAllSets;
             revealAllSets == "Stop" || revealAllSets == "stop" ? revealSets = 1 : revealSets = 0;
             if(revealSets){
-                setRevealer(trios);
                 break;
             }else{
                 delete cardStarter;
                 delete cardStarter->getFirst();
                 cardStarter = dozenGenerator();
-                boardPrinter(cardStarter);
                 trios = setFinder(cardStarter);
                 totalTrios = trios[0];
                 triosFound = 0;
@@ -850,6 +846,7 @@ void setPractice(){
                 revealAllSets = "";
             }
         }
+        boardPrinter(cardStarter);
         if(!revealNoOfSets){
             std::cout << "Would you like to see how many sets you have to find out of this dozen (Yes/No)? ";
             std::cin >> reveal;
@@ -868,21 +865,21 @@ void setPractice(){
         duplicate = 0;
         if(setUserInput(trios)){
             if(triosFound != totalTrios - 1){
-                std::cout << "Nice! You have found a set" << std::endl << std::endl;
+                std::cout << std::endl << "Nice! You have found a set" << std::endl << std::endl;
             }
             ++triosFound;
         }else{
             if(duplicate){
-                std::cout << "Dude, you already found that set." << std::endl;
+                std::cout << std::endl << "Dude, you already found that set." << std::endl << std::endl;
             }else{
-                std::cout << "Sorry, what you entered was not a set. Please try again" << std::endl;
+                std::cout << "Sorry, what you entered was not a set. Please try again" << std::endl << std::endl;
             }
         }
         if((triosFound != totalTrios) && revealNoOfSets){
-        std::cout << "You still have " << totalTrios - triosFound << " set that needs to be found" << std::endl;
+        std::cout << "You still have " << totalTrios - triosFound << " set that needs to be found" << std::endl << std::endl;
         }
     }
-    std::cout << "This game is just for practice. See you next time!" << std::endl;
+    std::cout << std::endl << "This game is just for practice. See you next time!" << std::endl;
 }
 
 void setRevealer(int* trios){
@@ -920,7 +917,7 @@ bool setUserInput(int* trios){
     std::cin >> thirdCard;
     guess3 = thirdCard;
     if((firstCard == secondCard) || (secondCard == thirdCard) || (thirdCard == firstCard)){
-        std::cout << "You think you're slick huh?" << std::endl;
+        std::cout << std::endl << "You think you're slick huh?" << std::endl;
         return 0;
     }
     bool firstCardFound{0};
